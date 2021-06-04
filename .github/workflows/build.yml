@@ -2,13 +2,11 @@ name: Build
 
 on:
   push:
-    branches-ignore: ['**']
-    # branches:
-    #   - main
+    branches:
+      - main
   pull_request:
-    branches-ignore: ['**']
-    # branches:
-    #   - main
+    branches:
+      - main
 
 jobs:
   build:
