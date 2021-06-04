@@ -1,27 +1,33 @@
-# @package_title@
+# Zam Factory Pattern Library
 
-@description@  
+Provides utilities to implement the factory pattern which deals with the problem of creating objects.  
   
-[![Version](https://img.shields.io/pub/v/@package_name@?color=%234287f5)](https://pub.dev/packages/@package_name@)
-[![Build](https://github.com/zamstation/@package_name@/actions/workflows/build.yml/badge.svg)](https://github.com/zamstation/@package_name@/actions/workflows/build.yml)
-[![Stars](https://img.shields.io/github/stars/zamstation/@package_name@.svg?style=flat&logo=github&colorB=deeppink&label=stars)](https://github.com/zamstation/@package_name@/stargazers)
-[![License](https://img.shields.io/github/license/zamstation/@package_name@)](https://pub.dev/packages/@package_name@/license)
+[![Version](https://img.shields.io/pub/v/zam_factory_pattern?color=%234287f5)](https://pub.dev/packages/zam_factory_pattern)
+[![Build](https://github.com/zamstation/zam_factory_pattern/actions/workflows/build.yml/badge.svg)](https://github.com/zamstation/zam_factory_pattern/actions/workflows/build.yml)
+[![Stars](https://img.shields.io/github/stars/zamstation/zam_factory_pattern.svg?style=flat&logo=github&colorB=deeppink&label=stars)](https://github.com/zamstation/zam_factory_pattern/stargazers)
+[![License](https://img.shields.io/github/license/zamstation/zam_factory_pattern)](https://pub.dev/packages/zam_factory_pattern/license)
 
 ## What's inside the package
 
 Includes the following core components.
 
-  * [@component_1@](https://pub.dev/documentation/@package_name@/latest/@package_name@/@component_1@-class.html)
-  * [@component_2@](https://pub.dev/documentation/@package_name@/latest/@package_name@/@component_2@-class.html)
-  * [@component_3@](https://pub.dev/documentation/@package_name@/latest/@package_name@/@component_3@-class.html)
+  * [Factory](https://pub.dev/documentation/zam_factory_pattern/latest/zam_factory_pattern/Factory-class.html)
+  * [ModifiedFactory](https://pub.dev/documentation/zam_factory_pattern/latest/zam_factory_pattern/ModifiedFactory-class.html)
+  * [TypedFactory](https://pub.dev/documentation/zam_factory_pattern/latest/zam_factory_pattern/TypedFactory-class.html)
 
-Check out all the components in detail [here](https://pub.dev/documentation/@package_name@/latest/@package_name@/@package_name@-library.html)
+Check out all the components in detail [here](https://pub.dev/documentation/zam_factory_pattern/latest/zam_factory_pattern/zam_factory_pattern-library.html)
 
 ## How to use
 
-@how_to_use@
+```dart
+final hondaFactory = HondaFactory({
+  HondaCity: () => HondaCity(),
+  HondaCivic: () => HondaCivic(),
+  HondaAccord: () => HondaAccord(),
+});
+```
 
-To learn more, move on to the [example section](https://pub.dev/packages/@package_name@/example) or check out this dedicated [example in github](https://github.com/zamstation/@package_name@/blob/main/example/lib/main.dart).
+To learn more, move on to the [example section](https://pub.dev/packages/zam_factory_pattern/example) or check out this dedicated [example in github](https://github.com/zamstation/zam_factory_pattern/blob/main/example/lib/main.dart).
 
 ## Contributors
   * [Amsakanna](https://github.com/amsakanna)

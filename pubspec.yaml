@@ -1,8 +1,9 @@
-name: package_name
+name: zam_factory_pattern
 version: 0.0.1
-description: << Write your description here (not less than 60 characters). >>
+description: Provides utilities to implement the factory pattern which deals
+  with the problem of creating objects.
 homepage: https://zamstation.com
-repository: https://github.com/zamstation/package_name
+repository: https://github.com/zamstation/zam_factory_pattern
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -11,4 +12,4 @@ dependencies:
   zam_core: ^0.1.1
 
 dev_dependencies:
-  zam_test: ^0.0.2
+  zam_test: ^0.1.0
