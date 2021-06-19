@@ -1,9 +1,9 @@
-# Zam Factory Pattern Library
+# Factory Pattern
 
 Provides utilities to implement the factory pattern which deals with the problem of creating objects.  
   
 [![Version](https://img.shields.io/pub/v/zam_factory_pattern?color=%234287f5)](https://pub.dev/packages/zam_factory_pattern)
-[![Build](https://github.com/zamstation/zam_factory_pattern/actions/workflows/build.yml/badge.svg)](https://github.com/zamstation/zam_factory_pattern/actions/workflows/build.yml)
+[![Build](https://github.com/zamstation/zam_factory_pattern/actions/workflows/build.yaml/badge.svg)](https://github.com/zamstation/zam_factory_pattern/actions/workflows/build.yaml)
 [![Stars](https://img.shields.io/github/stars/zamstation/zam_factory_pattern.svg?style=flat&logo=github&colorB=deeppink&label=stars)](https://github.com/zamstation/zam_factory_pattern/stargazers)
 [![License](https://img.shields.io/github/license/zamstation/zam_factory_pattern)](https://pub.dev/packages/zam_factory_pattern/license)
 
@@ -12,7 +12,7 @@ Provides utilities to implement the factory pattern which deals with the problem
 Includes the following core components.
 
   * [Factory](https://pub.dev/documentation/zam_factory_pattern/latest/zam_factory_pattern/Factory-class.html)
-  * [ModifiedFactory](https://pub.dev/documentation/zam_factory_pattern/latest/zam_factory_pattern/ModifiedFactory-class.html)
+  * [ModifiableFactory](https://pub.dev/documentation/zam_factory_pattern/latest/zam_factory_pattern/ModifiableFactory-class.html)
   * [TypedFactory](https://pub.dev/documentation/zam_factory_pattern/latest/zam_factory_pattern/TypedFactory-class.html)
 
 Check out all the components in detail [here](https://pub.dev/documentation/zam_factory_pattern/latest/zam_factory_pattern/zam_factory_pattern-library.html)

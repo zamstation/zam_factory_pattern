@@ -1,5 +1,9 @@
 part of 'factory.dart';
 
+///
+/// A mixin that makes a [Factory] into a [ModifiableFactory]
+/// where builders can be added and removed at any time.
+///
 mixin ModifiableFactoryMixin<KEY extends Object, INSTANCE extends Object>
     on Factory<KEY, INSTANCE> {
   Factory<KEY, INSTANCE> registerBuilder(KEY key, Builder<INSTANCE> builder) {

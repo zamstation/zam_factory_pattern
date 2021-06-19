@@ -1,5 +1,9 @@
 import 'package:zam_core/zam_core.dart';
 
+///
+/// Exception that is thrown when a builder is not
+/// found in the factory.
+///
 class BuilderNotFoundInFactoryException extends NamedException {
   final String builderKey;
 
