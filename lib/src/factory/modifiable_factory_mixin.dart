@@ -18,7 +18,7 @@ mixin ModifiableFactoryMixin<KEY extends Object, INSTANCE extends Object>
   }
 
   Factory<KEY, INSTANCE> copyBuildersFrom(Factory<KEY, INSTANCE> factory) {
-    registerBuilders(factory.builders);
+    registerBuilders(factory._builders);
     return this;
   }
 

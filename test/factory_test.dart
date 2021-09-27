@@ -1,7 +1,10 @@
+// ignore_for_file: prefer_void_to_null
+
 import 'package:zam_factory_pattern/zam_factory_pattern.dart';
 import 'package:zam_test/zam_test.dart';
 
 import '_setup.dart';
+import 'test_data/factory.test_data.dart';
 
 void main() {
   FactoryTestGroup().execute();
@@ -10,17 +13,6 @@ void main() {
 class FactoryTestGroup extends TestGroup {
   @override
   get name => 'Factory';
-
-  static late HondaFactory factory;
-
-  @override
-  initializeForEveryTest() {
-    factory = HondaFactory({
-      HondaCity: () => HondaCity(),
-      HondaCivic: () => HondaCivic(),
-      HondaAccord: () => HondaAccord(),
-    });
-  }
 
   @override
   get tests => [
@@ -36,10 +28,10 @@ class FactoryTestGroup extends TestGroup {
   FactoryTestGroup() : super.empty();
 }
 
-class KeysTest extends Test<void, Iterable<Type>> {
+class KeysTest extends Test<Null, Iterable<Type>> {
   @override
   run(input) {
-    return FactoryTestGroup.factory.keys;
+    return getFactoryTestData().keys;
   }
 
   @override
@@ -53,10 +45,10 @@ class KeysTest extends Test<void, Iterable<Type>> {
   ];
 }
 
-class LengthTest extends Test<void, int> {
+class LengthTest extends Test<Null, int> {
   @override
   run(input) {
-    return FactoryTestGroup.factory.length;
+    return getFactoryTestData().length;
   }
 
   @override
@@ -70,36 +62,32 @@ class LengthTest extends Test<void, int> {
   ];
 }
 
-class EmptyTest extends Test<void, bool> {
+class EmptyTest extends Test<Null, bool> {
   @override
   run(input) {
-    return FactoryTestGroup.factory.isEmpty;
+    return getFactoryTestData().isEmpty;
   }
 
   @override
   final cases = [
-    ValueTestCase(
-      when: 'When one or more builders are provided',
-      then: 'isEmpty should return false.',
+    BooleanTestCase.falsy(
+      when: 'isEmpty',
       input: null,
-      output: false,
     ),
   ];
 }
 
-class NotEmptyTest extends Test<void, bool> {
+class NotEmptyTest extends Test<Null, bool> {
   @override
   run(input) {
-    return FactoryTestGroup.factory.isNotEmpty;
+    return getFactoryTestData().isNotEmpty;
   }
 
   @override
   final cases = [
-    ValueTestCase(
-      when: 'When one or more builders are provided',
-      then: 'isNotEmpty should return true.',
+    BooleanTestCase.truthy(
+      when: 'isNotEmpty',
       input: null,
-      output: true,
     ),
   ];
 }
@@ -107,22 +95,18 @@ class NotEmptyTest extends Test<void, bool> {
 class ContainsTest extends Test<Type, bool> {
   @override
   run(input) {
-    return FactoryTestGroup.factory.contains(input);
+    return getFactoryTestData().contains(input);
   }
 
   @override
   final cases = [
-    ValueTestCase(
-      when: 'When an included key is searched for',
-      then: 'contains should return true.',
+    BooleanTestCase.truthy(
+      when: 'For an existing key, contain',
       input: HondaCivic,
-      output: true,
     ),
-    ValueTestCase(
-      when: 'When a non-included key is searched for',
-      then: 'contains should return false.',
+    BooleanTestCase.falsy(
+      when: 'For a non-existing key, contain',
       input: Object,
-      output: false,
     ),
   ];
 }
@@ -130,16 +114,18 @@ class ContainsTest extends Test<Type, bool> {
 class DoesNotContainTest extends Test<Type, bool> {
   @override
   run(input) {
-    return FactoryTestGroup.factory.doesNotContain(input);
+    return getFactoryTestData().doesNotContain(input);
   }
 
   @override
   final cases = [
-    ValueTestCase(
-      when: 'When a non-included key is searched for',
-      then: 'doesNotContain should return true.',
+    BooleanTestCase.truthy(
+      when: 'For a non-existing key, doesNotContain',
       input: Object,
-      output: true,
+    ),
+    BooleanTestCase.falsy(
+      when: 'For an existing key, doesNotContain',
+      input: HondaCivic,
     ),
   ];
 }
@@ -147,7 +133,7 @@ class DoesNotContainTest extends Test<Type, bool> {
 class CreateInstanceTest extends Test<Type, HondaCar> {
   @override
   run(input) {
-    return FactoryTestGroup.factory.createInstance(input);
+    return getFactoryTestData().createInstance(input);
   }
 
   @override

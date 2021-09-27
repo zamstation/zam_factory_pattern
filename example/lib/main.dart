@@ -1,4 +1,3 @@
-import 'package:zam_core/zam_core.dart';
 import 'package:zam_factory_pattern/zam_factory_pattern.dart';
 
 // Create the base class.

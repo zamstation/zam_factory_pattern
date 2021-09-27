@@ -1,7 +1,6 @@
 library factory;
 
-import 'package:zam_core/meta.dart';
-import 'package:zam_core/zam_core.dart' show Builder;
+import 'package:zam_core/zam_core.dart';
 import 'builder_not_found_in_factory.exception.dart';
 
 part 'modifiable_factory_mixin.dart';
@@ -36,7 +35,7 @@ class Factory<KEY extends Object, INSTANCE extends Object> {
   ///
   /// Checks if the factory is not empty.
   ///
-  bool get isNotEmpty => builders.isNotEmpty;
+  bool get isNotEmpty => _builders.isNotEmpty;
 
   ///
   /// Construct using map of builders and their keys.
@@ -47,7 +46,7 @@ class Factory<KEY extends Object, INSTANCE extends Object> {
   /// Checks if a builder is present in the factory.
   ///
   bool contains(KEY key) {
-    return builders.containsKey(key);
+    return _builders.containsKey(key);
   }
 
   ///
@@ -65,8 +64,7 @@ class Factory<KEY extends Object, INSTANCE extends Object> {
   ///
   Builder<INSTANCE> getBuilder(KEY key) {
     if (doesNotContain(key)) throw buildException(key);
-    final builder = builders[key];
-    return builder!;
+    return _builders[key]!;
   }
 
   ///
@@ -77,8 +75,7 @@ class Factory<KEY extends Object, INSTANCE extends Object> {
   ///
   INSTANCE createInstance(KEY key, [Object? request]) {
     final builder = getBuilder(key);
-    final instance = builder();
-    return instance;
+    return builder();
   }
 
   ///

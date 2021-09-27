@@ -1,4 +1,4 @@
-import 'package:zam_core/zam_core.dart' show Builder;
+import 'package:zam_core/zam_core.dart';
 
 import '../factory.dart';
 

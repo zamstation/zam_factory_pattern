@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_void_to_null
+
 import 'package:zam_test/zam_test.dart';
 
-import '_setup.dart';
+import 'test_data/factory.test_data.dart';
+import 'test_data/modifiable_factory.test_data.dart';
 
 void main() {
   TestGroup('ModifiableFactory', [
@@ -9,18 +12,11 @@ void main() {
   ]).execute();
 }
 
-class MergeWithTest extends Test<void, int> {
+class MergeWithTest extends Test<Null, int> {
   @override
   run(input) {
-    final factory = HondaFactory({
-      HondaCity: () => HondaCity(),
-      HondaCivic: () => HondaCivic(),
-      HondaAccord: () => HondaAccord(),
-    });
-    final modifiableFactory = ModifiableHondaFactory({
-      HondaJazz: () => HondaJazz(),
-      HondaCrv: () => HondaCrv(),
-    });
+    final factory = getFactoryTestData();
+    final modifiableFactory = getModifiableFactoryTestData();
     modifiableFactory.mergeWith(factory);
     return modifiableFactory.length;
   }
@@ -37,24 +33,19 @@ class MergeWithTest extends Test<void, int> {
   ];
 }
 
-class ClearTest extends Test<void, bool> {
+class ClearTest extends Test<Null, bool> {
   @override
   run(input) {
-    final modifiableFactory = ModifiableHondaFactory({
-      HondaJazz: () => HondaJazz(),
-      HondaCrv: () => HondaCrv(),
-    });
+    final modifiableFactory = getModifiableFactoryTestData();
     modifiableFactory.clear();
     return modifiableFactory.isEmpty;
   }
 
   @override
   final cases = [
-    ValueTestCase(
-      when: 'When a modifiable factory is cleared',
-      then: 'isEmpty should return true.',
+    BooleanTestCase.truthy(
+      when: 'When a modifiable factory is cleared, isEmpty',
       input: null,
-      output: true,
     ),
   ];
 }
