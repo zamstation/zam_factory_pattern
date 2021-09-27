@@ -9,7 +9,7 @@ void main() {
 
 class FactoryTestGroup extends TestGroup {
   @override
-  final name = 'Factory';
+  get name => 'Factory';
 
   static late HondaFactory factory;
 
